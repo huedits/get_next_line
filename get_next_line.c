@@ -6,7 +6,7 @@
 /*   By: vimatheu <vimatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 15:01:41 by vimatheu          #+#    #+#             */
-/*   Updated: 2022/09/06 22:41:34 by vimatheu         ###   ########.fr       */
+/*   Updated: 2022/09/07 02:40:05 by vimatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*get_next_line(int fd)
 	static char	*aux;
 	char		*line;
 	ssize_t		i;
-
+	
 	line = (char *) ft_calloc(1,1);
 	buffer = (char *) malloc (BUFFER_SIZE + 1);
 	while (read(fd, buffer, BUFFER_SIZE))
@@ -26,11 +26,12 @@ char	*get_next_line(int fd)
 		i = 0;
 		while (buffer[i] && buffer[i] != '\n')
 			i++;
-		aux = ft_strjoin(line, ft_substr(buffer, 0, i + 1));
-		free(line);
-		line = ft_strdup(aux);
+		if (!aux)
+			aux = line;
+		line = ft_strjoin(aux, ft_substr(buffer, 0, i + 1));
 		free(aux);
-		if (buffer[i] == '\n' && i < BUFFER_SIZE)
+		aux = NULL;
+		if (buffer[i] == '\n')
 		{
 			aux = ft_strdup(buffer + (i + 1));
 			free(buffer);
@@ -38,6 +39,12 @@ char	*get_next_line(int fd)
 		}
 		else
 			ft_bzero(buffer, ft_strlen(buffer));
+	}
+	if (*aux)
+	{
+		line = ft_strdup(aux);
+		free(aux);
+		return (line);
 	}
 	return (NULL);
 }
