@@ -4,3 +4,4 @@
 ---
 > also NOTES.(null)(null)
 \ No newline at end of file
+# Expected diff because get_next_line is running 10x with an 8 lines file.
