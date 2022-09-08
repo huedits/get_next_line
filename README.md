@@ -25,6 +25,11 @@
 [get_next_line.c](get_next_line.c)
 | [utils](get_next_line_utils.c)
 
+## Test results
+
+Automated test by Tripouille
+<img src="Tripouille gnlTester.png" align="center">
+
 ## 📝 License
 
 This project is licensed. Check out [LICENSE](LICENSE.md) for more details.
