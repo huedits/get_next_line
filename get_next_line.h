@@ -6,12 +6,16 @@
 /*   By: vimatheu <vimatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:59:57 by vimatheu          #+#    #+#             */
-/*   Updated: 2022/09/06 19:55:48 by vimatheu         ###   ########.fr       */
+/*   Updated: 2022/09/08 20:20:05 by vimatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 #include <unistd.h>
 #include <fcntl.h>

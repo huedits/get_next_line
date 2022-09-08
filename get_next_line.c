@@ -6,7 +6,7 @@
 /*   By: vimatheu <vimatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 15:01:41 by vimatheu          #+#    #+#             */
-/*   Updated: 2022/09/07 02:40:05 by vimatheu         ###   ########.fr       */
+/*   Updated: 2022/09/08 20:28:42 by vimatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,35 +18,51 @@ char	*get_next_line(int fd)
 	static char	*aux;
 	char		*line;
 	ssize_t		i;
+	ssize_t		chars_read;
 	
-	line = (char *) ft_calloc(1,1);
-	buffer = (char *) malloc (BUFFER_SIZE + 1);
-	while (read(fd, buffer, BUFFER_SIZE))
+	i = 0;
+	chars_read = BUFFER_SIZE;
+	line = NULL;
+	buffer = NULL;
+	if (!aux)
+		aux = (char *) ft_calloc(1,1);
+	while (chars_read > 0)
 	{
-		i = 0;
-		while (buffer[i] && buffer[i] != '\n')
+		while (aux[i] != '\n' && aux[i])
 			i++;
-		if (!aux)
-			aux = line;
-		line = ft_strjoin(aux, ft_substr(buffer, 0, i + 1));
-		free(aux);
-		aux = NULL;
-		if (buffer[i] == '\n')
+		if (aux[i] == '\n')
 		{
-			aux = ft_strdup(buffer + (i + 1));
-			free(buffer);
+			line = aux;
+			aux = ft_substr(line, i + 1, ft_strlen(line + i + 1));
+			ft_bzero(line + i + 1, ft_strlen(line + i + 1));
 			return (line);
 		}
-		else
-			ft_bzero(buffer, ft_strlen(buffer));
+		if(chars_read == BUFFER_SIZE)
+		{
+			buffer = (char *) ft_calloc(BUFFER_SIZE + 1, 1);
+			chars_read = read(fd, buffer, BUFFER_SIZE);
+			if (chars_read > 0)
+			{
+				line = ft_strjoin(aux, buffer);
+				free(aux);
+				aux = ft_strdup(line);
+				free(line);
+			}
+			free(buffer);
+		}
 	}
 	if (*aux)
 	{
-		line = ft_strdup(aux);
-		free(aux);
+		line = aux;
+		aux = NULL;
 		return (line);
 	}
-	return (NULL);
+	else
+	{
+		free(aux);
+		aux = NULL;
+		return (NULL);
+	}
 }
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
