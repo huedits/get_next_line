@@ -32,6 +32,6 @@ Automated test by Tripouille
 
 ## 📝 License
 
-This project is licensed. Check out [LICENSE](LICENSE.md) for more details.
+This project is licensed. Check out [LICENSE](LICENSE) for more details.
 
 [⬆ Back to the top](#libft)<br>
