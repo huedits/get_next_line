@@ -6,7 +6,7 @@
 /*   By: vimatheu <vimatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 15:01:41 by vimatheu          #+#    #+#             */
-/*   Updated: 2022/09/13 01:05:44 by vimatheu         ###   ########.fr       */
+/*   Updated: 2022/09/13 01:11:37 by vimatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int	read_file(char **aux_p, char **line_p, int fd)
 		if ((*aux_p)[i] == '\n')
 		{
 			*line_p = *aux_p;
-			*aux_p = ft_substr(*line_p, i + 1, ft_strlen(*(line_p + i + 1)));
-			ft_bzero(*(line_p + i + 1), ft_strlen(*(line_p + i + 1)));
+			*aux_p = ft_substr(*line_p, i + 1, ft_strlen(*line_p + i + 1));
+			ft_bzero(*line_p + i + 1, ft_strlen(*line_p + i + 1));
 			return (1);
 		}
 		buffer = (char *) ft_calloc(BUFFER_SIZE + 1, 1);
