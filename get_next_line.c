@@ -6,7 +6,7 @@
 /*   By: vimatheu <vimatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 15:01:41 by vimatheu          #+#    #+#             */
-/*   Updated: 2022/09/12 20:15:53 by vimatheu         ###   ########.fr       */
+/*   Updated: 2022/09/12 21:26:12 by vimatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 char	*get_next_line(int fd)
 {
-	char		*buffer;
 	static char	*aux;
 	char		*line;
+	char		*buffer;
 	ssize_t		i;
 	ssize_t		chars_read;
-	
+
 	i = 0;
 	chars_read = BUFFER_SIZE;
-	line = NULL;
 	buffer = NULL;
+	line = NULL;
 	if (!aux)
-		aux = (char *) ft_calloc(1,1);
+		aux = (char *) ft_calloc(1, 1);
 	while (chars_read > 0)
 	{
 		while (aux[i] != '\n' && aux[i])
@@ -37,32 +37,22 @@ char	*get_next_line(int fd)
 			ft_bzero(line + i + 1, ft_strlen(line + i + 1));
 			return (line);
 		}
-		if(chars_read > 0)
-		{
-			buffer = (char *) ft_calloc(BUFFER_SIZE + 1, 1);
-			chars_read = read(fd, buffer, BUFFER_SIZE);
-			if (chars_read > 0)
-			{
-				line = ft_strjoin(aux, buffer);
-				free(aux);
-				aux = ft_strdup(line);
-				free(line);
-			}
-			free(buffer);
-		}
+		buffer = (char *) ft_calloc(BUFFER_SIZE + 1, 1);
+		chars_read = read(fd, buffer, BUFFER_SIZE);
+		line = ft_strjoin(aux, buffer);
+		free(aux);
+		aux = line;
+		free(buffer);
 	}
-	if (*aux)
-	{
-		line = aux;
-		aux = NULL;
-		return (line);
-	}
-	else
+	if (!*aux)
 	{
 		free(aux);
 		aux = NULL;
 		return (NULL);
 	}
+	line = aux;
+	aux = NULL;
+	return (line);
 }
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)

@@ -6,7 +6,7 @@
 /*   By: vimatheu <vimatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 17:20:33 by vimatheu          #+#    #+#             */
-/*   Updated: 2022/09/08 20:29:01 by vimatheu         ###   ########.fr       */
+/*   Updated: 2022/09/12 20:32:23 by vimatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 
 int	main(void)
 {
-	int	lines = 10;
-	int	fd;
+	int		lines;
+	int		fd;
 	char	*str;
-	
+
 	str = NULL;
 	fd = 0;
 	fd = open ("teste.txt", O_RDONLY);
+	lines = 10;
 	if (fd < 0)
 	{
 		printf("Erro ao abrir arquivo.");
