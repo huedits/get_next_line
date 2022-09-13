@@ -11,28 +11,37 @@
 ```diff
 - This project is finished but not yet evaluated.
 ```
-- [x] **Extra files**<br>
+- [x] **Extra files**<br />
 [teste.txt](teste.txt)
 | [result.txt](result.txt)
 | [result.diff](result.diff)
 | [leaks](leaks)
 | [grademe.sh](grademe.sh)
-- [x] **Header file**<br>
+- [x] **Header file**<br />
  [get_next_line.h](get_next_line.h)
-- [x] **Main file**<br>
+- [x] **Main file**<br />
 [main.c](main.c)
 - [x] **GNL files**<br>
 [get_next_line.c](get_next_line.c)
 | [utils](get_next_line_utils.c)
-- [x] **Bonus files**<br>
+- [x] **Bonus files**<br />
 [get_next_line_bonus.c](get_next_line_bonus.c)
 | [utils](get_next_line_utils_bonus.c)
 | [header](get_next_line_bonus.h)
 
 ## Test results
 
-Automated test by Tripouille
-<img src="mandatory_tests.png" align="left"><img src="bonus_tests.png" align="right">
+Automated test by [Tripouille](https://github.com/Tripouille)<br />
+<table>
+ <tr>
+  <th>Mandatory</th>
+  <th>Bonus</th>
+ </tr>
+ <tr>
+  <td><img src="mandatory_tests.png"></td>
+  <td><img src="bonus_tests.png"></td>
+ </tr>
+</table>
 
 ## 📝 License
 
