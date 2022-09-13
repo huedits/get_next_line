@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vimatheu <vimatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:59:57 by vimatheu          #+#    #+#             */
-/*   Updated: 2022/09/13 01:44:01 by vimatheu         ###   ########.fr       */
+/*   Updated: 2022/09/13 16:10:43 by vimatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,6 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
-
-typedef struct		s_list
-{
-	int				fd;
-	char			*rest;
-	struct s_list	*next;
-}					t_list
 
 char	*get_next_line(int fd);
 char	*ft_strdup(const char *s1);
