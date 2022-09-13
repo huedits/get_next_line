@@ -6,7 +6,7 @@
 /*   By: vimatheu <vimatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 15:01:41 by vimatheu          #+#    #+#             */
-/*   Updated: 2022/09/13 16:08:48 by vimatheu         ###   ########.fr       */
+/*   Updated: 2022/09/13 11:33:11 by vimatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*get_next_line(int fd)
 	static char	*aux[4096];
 	char		*line;
 
+	if (fd < 0 || BUFFER_SIZE < 1)
+		return (NULL);
 	line = aux[fd];
 	if (!aux[fd])
 		aux[fd] = (char *) ft_calloc(1, 1);
