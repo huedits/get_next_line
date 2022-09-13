@@ -9,7 +9,7 @@
 
 ### Content
 ```diff
-- This project is still in development.
+- This project is finished but not yet evaluated.
 ```
 - [x] **Extra files**<br>
 [teste.txt](teste.txt)
@@ -24,11 +24,15 @@
 - [x] **GNL files**<br>
 [get_next_line.c](get_next_line.c)
 | [utils](get_next_line_utils.c)
+- [x] **Bonus files**<br>
+[get_next_line_bonus.c](get_next_line_bonus.c)
+| [utils](get_next_line_utils_bonus.c)
+| [header](get_next_line_bonus.h)
 
 ## Test results
 
 Automated test by Tripouille
-<img src="Tripouille gnlTester.png" align="center">
+<img src="mandatory_tests.png" align="left"><img src="bonus_tests.png" align="right">
 
 ## 📝 License
 
