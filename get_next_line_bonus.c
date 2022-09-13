@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vimatheu <vimatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 15:01:41 by vimatheu          #+#    #+#             */
-/*   Updated: 2022/09/13 16:05:58 by vimatheu         ###   ########.fr       */
+/*   Updated: 2022/09/13 16:08:48 by vimatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 char	*get_next_line(int fd)
 {
-	static char	*aux;
+	static char	*aux[4096];
 	char		*line;
 
-	line = aux;
-	if (!aux)
-		aux = (char *) ft_calloc(1, 1);
-	if (read_file(&aux, &line, fd))
+	line = aux[fd];
+	if (!aux[fd])
+		aux[fd] = (char *) ft_calloc(1, 1);
+	if (read_file(&aux[fd], &line, fd))
 		return (line);
-	if (!*aux)
+	if (!*aux[fd])
 	{
-		free(aux);
-		aux = NULL;
+		free(aux[fd]);
+		aux[fd] = NULL;
 		return (NULL);
 	}
-	line = aux;
-	aux = NULL;
+	line = aux[fd];
+	aux[fd] = NULL;
 	return (line);
 }
 
