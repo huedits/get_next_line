@@ -1,7 +1,7 @@
 # get_next_line
 42 Cursus - Get Next Line
 
-<img src="https://game.42sp.org.br/static/assets/achievements/get_next_linen.png" align="right">
+<img src="https://game.42sp.org.br/static/assets/achievements/ft_printfn.png" align="right">
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/iuricode/README-template?style=for-the-badge)
 
