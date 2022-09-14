@@ -1,7 +1,7 @@
 # get_next_line
 42 Cursus - Get Next Line
 
-<img src="https://game.42sp.org.br/static/assets/achievements/ft_printfn.png" align="right">
+<img src="https://game.42sp.org.br/static/assets/achievements/get_next_linen.png" align="right">
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/iuricode/README-template?style=for-the-badge)
 
@@ -47,4 +47,4 @@ Automated test by [Tripouille](https://github.com/Tripouille)<br />
 
 This project is licensed. Check out [LICENSE](LICENSE) for more details.
 
-[⬆ Back to the top](#libft)<br>
+[⬆ Back to the top](#get_next_line)<br>
