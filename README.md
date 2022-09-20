@@ -1,15 +1,16 @@
 # get_next_line
 42 Cursus - Get Next Line
 
-<img src="https://game.42sp.org.br/static/assets/achievements/get_next_linen.png" align="right">
+<img src="https://game.42sp.org.br/static/assets/achievements/get_next_linem.png" align="right">
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/iuricode/README-template?style=for-the-badge)
 
 > This project is about programming a function that returns a line read from a file descriptor.
 
 ### Content
+This project has been completed and evaluated.
 ```diff
-- This project is finished but not yet evaluated.
++ Final grade 125/100.
 ```
 - [x] **Extra files**<br />
 [teste.txt](teste.txt)
